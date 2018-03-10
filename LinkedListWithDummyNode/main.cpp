@@ -12,7 +12,7 @@ using namespace std;
 
 int main() {
     List<int> numbers;
-    
+    // testing functions
     for (int i = 0; i < 10; i++)
         numbers.push_back(i);
     
