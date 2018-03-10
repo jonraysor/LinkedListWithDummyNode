@@ -5,11 +5,27 @@
 //  Created by Jonathan Raysor on 3/9/18.
 //  Copyright © 2018 Jonathan Raysor. All rights reserved.
 //
-
+#include "List.h"
 #include <iostream>
 
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    std::cout << "Hello, World!\n";
-    return 0;
+using namespace std;
+
+int main() {
+    List<int> numbers;
+    
+    for (int i = 0; i < 10; i++)
+        numbers.push_back(i);
+    
+    cout << numbers.size() << endl;
+    
+    for (int j = 0; j < 3; j++)
+        numbers.pop_front();
+    
+    cout << numbers.size() << endl;
+    
+    for (int k = 0; k < 2; k ++)
+        numbers.pop_back();
+    
+    cout << numbers.size() << endl;
+
 }
