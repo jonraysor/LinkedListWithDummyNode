@@ -25,7 +25,6 @@ private:
     
     void deleteAllNodes(){
         if(numNodes==0){
-            delete dummy;
             return;
         }
         
@@ -36,18 +35,57 @@ private:
     }
     
 public:
+    // default constructor
     List(){
         dummy -> next = nullptr;
         dummy -> previous = nullptr;
         numNodes = 0;
     }
     
+    // constructor with initial size with all values set to NULL
+    List(const int initialSize){
+        dummy -> next = nullptr;
+        dummy -> previous = nullptr;
+        numNodes = 0;
+    
+        for (int i = 0; i < initialSize; i++)
+            push_front();
+    }
+    
+    // constructor with initial size and values for all nodes
+    List(const int initialSize, T value){
+        dummy -> next = nullptr;
+        dummy -> previous = nullptr;
+        numNodes = 0;
+        
+        for (int i = 0; i < initialSize; i++)
+            push_front(value);
+    }
+    
+    // constructor using array to initialize values in the list
+    List(T * arr, T * arrEnd){
+        dummy -> next = nullptr;
+        dummy -> previous = nullptr;
+        numNodes = 0;
+        
+        for (int * i=arr; i != arrEnd; i++)
+            push_front(*i);
+        
+    }
+    
+    // destructor which deletes all nodes allocated
     ~List(){
         deleteAllNodes();
     }
+    
     void pop_back(){
         if (dummy -> previous == nullptr)
             return;
+        
+        if (numNodes == 1){
+            delete dummy -> previous;
+            dummy -> previous = nullptr;
+        }
         
         ListNode * temp = dummy -> previous -> previous;
         delete dummy -> previous;

@@ -12,6 +12,10 @@ using namespace std;
 
 int main() {
     List<int> numbers;
+    
+    List<int> numbers2(10,5);
+    cout << numbers2.size() << endl;
+    
     // testing functions
     for (int i = 0; i < 10; i++)
         numbers.push_back(i);
