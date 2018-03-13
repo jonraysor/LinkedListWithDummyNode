@@ -82,15 +82,19 @@ public:
         if (dummy -> previous == nullptr)
             return;
         
+        else
         if (numNodes == 1){
             delete dummy -> previous;
             dummy -> previous = nullptr;
-        }
+            }
         
-        ListNode * temp = dummy -> previous -> previous;
-        delete dummy -> previous;
-        dummy -> previous = temp;
-        
+        else
+            if (numNodes > 1){
+                ListNode * temp = dummy -> previous -> previous;
+                delete dummy -> previous;
+                dummy -> previous = temp;
+            }
+    
         numNodes-=1;
     }
     
